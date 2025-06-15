@@ -35,6 +35,7 @@ class UserList extends Component
                 return (object) [
                     'id' => $item->id,
                     'item_name' => $item->item_name,
+                    'image' => $item->image,
                     'price' => $item->price,
                     'amount' => $userItem->amount,
                     'total' => $itemTotal,

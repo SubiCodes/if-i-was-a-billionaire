@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
-
+Route::get('/', function () {
+    return Auth::check() ? redirect('/items') : redirect('/login');
+});
 Route::view('items', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('items');
@@ -16,4 +17,4 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
